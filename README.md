@@ -88,7 +88,7 @@ Actualizar los estados según el avance real y capturar una evidencia del tabler
 ### Ramas propuestas
 
 - `main`: versión estable de la documentación.
-- `feature/bpmn-registro-ventas`: diagrama y descripción del proceso BPMN.
+- `feature/bpmn.registro-ventas`: diagrama y descripción del proceso BPMN.
 - `docs/historias-usuario-backlog`: historias de usuario y criterios de aceptación.
 - `docs/indicadores-control`: indicadores y estándares de desempeño.
 
@@ -101,7 +101,7 @@ Actualizar los estados según el avance real y capturar una evidencia del tabler
 
 ### Pull Request y revisión de pares
 
-Crear al menos un Pull Request desde una rama secundaria hacia `main`. Por ejemplo: `feature/bpmn-registro-ventas` → `main`.
+Crear al menos un Pull Request desde una rama secundaria hacia `main`. Por ejemplo: `feature/bpmn.registro-ventas` → `main`.
 
 En la descripción del PR indicar los archivos incorporados, el objetivo del cambio y qué debe revisar el compañero. Solicitar una revisión real a otro estudiante, registrar al menos una observación o aprobación, aplicar los cambios necesarios y recién entonces fusionar el PR. **No declarar el PR como revisado o fusionado hasta que esas acciones hayan ocurrido en GitHub.**
 
