@@ -12,13 +12,13 @@ El proyecto propone un Sistema de Gestión de Inventario y Ventas para centraliz
 
 ## Documentación del proyecto
 
-- `bpmn/proceso_venta_actualizacion_stock.png`: diagrama del proceso con notación BPMN 2.0.
-- `bpmn/proceso_venta_actualizacion_stock.bpmn`: fuente BPMN para abrir y editar en un modelador compatible.
-- `docs/historias_usuario.md`: historias de usuario y criterios de aceptación.
-- `docs/indicadores_control.md`: indicadores, estándares y frecuencia de control.
-- `docs/diccionario_datos.md`: resumen de las entidades Producto, Venta y DetalleVenta.
-- `docs/backlog_github_projects.csv`: datos del backlog para cargar al tablero.
-- `docs/guia_github.md`: pasos para crear el repositorio, las ramas, el Pull Request y el tablero.
+- `proceso_venta_actualizacion_stock.png`: diagrama del proceso con notación BPMN 2.0.
+- `proceso_venta_actualizacion_stock.bpmn`: fuente BPMN para abrir y editar en un modelador compatible.
+- `historias_usuario.md`: historias de usuario y criterios de aceptación.
+- `indicadores_control.md`: indicadores, estándares y frecuencia de control.
+- `diccionario_datos.md`: resumen de las entidades Producto, Venta y DetalleVenta.
+- `backlog_github_projects.csv`: datos del backlog para cargar al tablero.
+- `guia_github.md`: pasos para crear el repositorio, las ramas, el Pull Request y el tablero.
 
 ## Alcance funcional considerado
 
