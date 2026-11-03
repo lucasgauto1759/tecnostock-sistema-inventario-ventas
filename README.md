@@ -30,10 +30,10 @@ El proyecto propone un Sistema de Gestión de Inventario y Ventas para centraliz
 
 ## Repositorio y tablero
 
-- **Repositorio público:** [PEGAR AQUÍ LA URL REAL DEL REPOSITORIO]
-- **Tablero GitHub Projects:** [PEGAR AQUÍ LA URL REAL DEL TABLERO]
+- **Repositorio público:** https://github.com/lucasgauto1759/tecnostock-sistema-inventario-ventas
+- **Tablero GitHub Projects:** https://github.com/users/lucasgauto1759/projects/1/views/1
 
-> Estos enlaces deben reemplazarse por las direcciones reales una vez creados y publicados el repositorio y el tablero. No se deben entregar los marcadores de posición.
+El repositorio y el tablero fueron creados en GitHub. El tablero se configuró como público y contiene las tres historias de usuario vinculadas como Issues.
 
 ## Historias de usuario
 
@@ -71,9 +71,9 @@ Como responsable de Administración, quiero consultar la información de ventas 
 
 ## Tablero ágil
 
-Crear un proyecto de GitHub Projects con las columnas **Por Hacer**, **En Progreso** y **Listo**. Cargar las tres historias anteriores como Issues y vincularlas al proyecto.
+El proyecto de GitHub Projects ya está creado con las columnas **Por Hacer**, **En Progreso** y **Listo**. Las tres historias están cargadas como Issues y vinculadas al tablero.
 
-Estado inicial sugerido para el seguimiento de la documentación (no significa que las funcionalidades del software estén implementadas):
+Estado actual del seguimiento de la documentación (no significa que las funcionalidades del software estén implementadas):
 
 | Historia | Estado sugerido | Motivo |
 |---|---|---|
@@ -105,17 +105,14 @@ Crear al menos un Pull Request desde una rama secundaria hacia `main`. Por ejemp
 
 En la descripción del PR indicar los archivos incorporados, el objetivo del cambio y qué debe revisar el compañero. Solicitar una revisión real a otro estudiante, registrar al menos una observación o aprobación, aplicar los cambios necesarios y recién entonces fusionar el PR. **No declarar el PR como revisado o fusionado hasta que esas acciones hayan ocurrido en GitHub.**
 
-## Puesta en marcha en GitHub (pasos pendientes de ejecución)
+## Estado de la implementación del repositorio y tablero
 
-1. Crear en GitHub un repositorio **público** llamado `tecnostock-sistema-inventario-ventas`.
-2. Cargar el contenido de esta carpeta, conservando `README.md`, `bpmn/`, `docs/` y `.github/`.
-3. Crear las ramas secundarias indicadas en la sección de control de versiones y realizar commits con mensajes descriptivos.
-4. Abrir un Pull Request desde una rama secundaria hacia `main`, solicitar la revisión de otro estudiante, resolver los comentarios y fusionarlo solo después de recibir una aprobación real.
-5. Crear un proyecto en GitHub Projects con las columnas `Por Hacer`, `En Progreso` y `Listo`; cargar las tres historias como Issues y vincularlas al tablero.
-6. Copiar las direcciones públicas reales del repositorio y del tablero a la primera página del informe y a los enlaces de este README.
-7. Incorporar capturas que muestren el repositorio público, las ramas, los commits, el Pull Request revisado y el tablero con las tres historias.
+- Repositorio público creado y documentación cargada.
+- Tablero GitHub Projects creado, configurado como público y vinculado a las tres Issues.
+- Historias distribuidas según el estado actual de la documentación: US-01 en **Listo**, US-02 en **En Progreso** y US-03 en **Por Hacer**.
+- Pull Request #1 abierto para documentar cambios en el README. Se recibió un comentario de revisión desde la cuenta secundaria `lumsoner`, perteneciente al mismo estudiante; por transparencia, se considera una **auto-revisión técnica**, no una revisión de pares independiente. La revisión de otro estudiante queda pendiente de confirmar con la cátedra o de realizar si se consigue un compañero revisor.
 
-Los elementos anteriores son una guía de ejecución. Los enlaces, estados y revisiones deben actualizarse con evidencia real después de realizar las acciones en GitHub; no deben presentarse como realizadas antes de ejecutarlas.
+Antes de entregar, incorporar capturas que muestren el repositorio público, el Pull Request y el tablero con las tres historias.
 
 ## Declaración de uso de IA
 
