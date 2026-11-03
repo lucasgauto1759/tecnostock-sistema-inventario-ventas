@@ -122,3 +122,14 @@ Los elementos anteriores son una guía de ejecución. Los enlaces, estados y rev
 Se utilizó un asistente de IA como apoyo para proponer una primera estructura del proceso BPMN, organizar las historias de usuario y redactar indicadores de control. Entre los prompts utilizados se incluyeron pedidos para: (1) representar el registro de una venta y la actualización del stock con Pools y Lanes para Cliente, Ventas, Sistema, Depósito y Sistemas; (2) formular historias de usuario y criterios de aceptación a partir de las funcionalidades del caso; y (3) proponer indicadores medibles para verificar el registro de ventas, el tiempo de actualización y la consistencia del inventario.
 
 La revisión humana consistió en contrastar las propuestas con el alcance de TecnoStock, conservar las entidades Producto, Venta y DetalleVenta definidas en la Entrega 3, retirar funcionalidades no establecidas (como una pasarela de pagos o la integración automática con proveedores), revisar el tratamiento de la falta de stock y de las fallas técnicas, y mantener las metas cuantitativas de la Entrega 2 (100 % de ventas registradas, reducción del 80 % de errores y actualización del stock en hasta 3 segundos). Los estados del tablero, los commits, la revisión de pares y los enlaces deben reflejar acciones reales efectuadas por el estudiante y no resultados inventados por la IA.
+
+
+## Reglas del proceso de ventas
+
+1. El vendedor registra los productos y las cantidades solicitadas por el cliente.
+2. El sistema verifica si existe stock suficiente.
+3. Si hay disponibilidad, registra la venta y su detalle.
+4. El sistema actualiza automáticamente el inventario.
+5. Si no hay stock suficiente, informa la situación y no confirma la venta.
+6. Si ocurre un error durante la actualización, se registra una incidencia para su revisión.
+
