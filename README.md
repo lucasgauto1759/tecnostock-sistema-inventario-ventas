@@ -101,16 +101,20 @@ Actualizar los estados según el avance real y capturar una evidencia del tabler
 
 ### Pull Request y revisión de pares
 
-Crear al menos un Pull Request desde una rama secundaria hacia `main`. Por ejemplo: `feature/bpmn.registro-ventas` → `main`.
+Se creó el Pull Request [#1](https://github.com/lucasgauto1759/tecnostock-sistema-inventario-ventas/pull/1) desde la rama `feature/bpmn.registro-ventas` hacia `main`, con el objetivo de actualizar la documentación del repositorio, principalmente el archivo `README.md`.
 
-En la descripción del PR indicar los archivos incorporados, el objetivo del cambio y qué debe revisar el compañero. Solicitar una revisión real a otro estudiante, registrar al menos una observación o aprobación, aplicar los cambios necesarios y recién entonces fusionar el PR. **No declarar el PR como revisado o fusionado hasta que esas acciones hayan ocurrido en GitHub.**
+Durante el proceso se produjo un conflicto por modificaciones realizadas en el mismo archivo de la rama principal. Por ese motivo, el Pull Request fue cerrado sin fusionarse y los cambios correspondientes al README quedaron incorporados directamente en `main`.
+
+Se registró un comentario de revisión desde la cuenta secundaria `lumsoner`, perteneciente al mismo estudiante. Esta intervención se considera una auto-revisión técnica y no una revisión de pares independiente. La revisión independiente de otro estudiante quedó pendiente.
+
+**Estado del Pull Request #1:** cerrado, no fusionado.
 
 ## Estado de la implementación del repositorio y tablero
 
 - Repositorio público creado y documentación cargada.
 - Tablero GitHub Projects creado, configurado como público y vinculado a las tres Issues.
 - Historias distribuidas según el estado actual de la documentación: US-01 en **Listo**, US-02 en **En Progreso** y US-03 en **Por Hacer**.
-- Pull Request #1 abierto para documentar cambios en el README. Se recibió un comentario de revisión desde la cuenta secundaria `lumsoner`, perteneciente al mismo estudiante; por transparencia, se considera una **auto-revisión técnica**, no una revisión de pares independiente. La revisión de otro estudiante queda pendiente de confirmar con la cátedra o de realizar si se consigue un compañero revisor.
+- Pull Request #1 cerrado sin fusionarse debido a un conflicto en el README. Los cambios del README quedaron incorporados directamente en `main`. El comentario de revisión desde `lumsoner` fue una auto-revisión técnica, no una revisión de pares independiente; la revisión independiente quedó pendiente.
 
 Antes de entregar, incorporar capturas que muestren el repositorio público, el Pull Request y el tablero con las tres historias.
 
