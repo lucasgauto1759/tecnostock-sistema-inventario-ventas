@@ -1,0 +1,4 @@
+ID,Title,User Story,Status,Acceptance Criteria
+US-01,Registro de ventas,"Como vendedor/a, quiero registrar las ventas con los productos y cantidades correspondientes, para mantener un historial centralizado de las operaciones.",Listo,"Número único y fecha/hora; detalle de productos; total consistente; validación de stock"
+US-02,Actualización automática del inventario,"Como responsable de Depósito, quiero que el stock se actualice automáticamente después de confirmar una venta, para conocer la disponibilidad real y reducir errores de inventario.",En Progreso,"Descuento tras confirmación; sin stock negativo; actualización <= 3 segundos; incidencia ante error"
+US-03,Consulta de información para control,"Como responsable de Administración, quiero consultar la información de ventas e inventario, para realizar controles y apoyar la toma de decisiones.",Por Hacer,"Filtros por fecha/producto; totales consistentes; stock actual; acceso autorizado"

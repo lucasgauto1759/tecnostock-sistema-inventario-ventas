@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_TecnoStock" targetNamespace="https://tecnostock.example/bpmn">
+  <bpmn:error id="Error_UpdateStock" name="Falla de actualización de stock" errorCode="STOCK_UPDATE_FAILED" />
+  <bpmn:collaboration id="Collaboration_TecnoStock">
+    <bpmn:participant id="Participant_Cliente" name="Cliente" processRef="Process_Cliente" />
+    <bpmn:participant id="Participant_TecnoStock" name="TecnoStock" processRef="Process_TecnoStock" />
+    <bpmn:messageFlow id="MessageFlow_Pedido" name="Pedido" sourceRef="Task_Solicitar" targetRef="Start_Pedido" />
+    <bpmn:messageFlow id="MessageFlow_SinStock" name="Aviso de falta de disponibilidad" sourceRef="Task_NoStock" targetRef="Task_RecibirRespuesta" />
+    <bpmn:messageFlow id="MessageFlow_Confirmacion" name="Confirmación de venta" sourceRef="Task_InformarResultado" targetRef="Task_RecibirRespuesta" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Cliente" isExecutable="false">
+    <bpmn:startEvent id="Start_Cliente" name="Necesidad de compra"><bpmn:outgoing>Flow_C1</bpmn:outgoing></bpmn:startEvent>
+    <bpmn:task id="Task_Solicitar" name="Solicitar productos"><bpmn:incoming>Flow_C1</bpmn:incoming></bpmn:task>
+    <bpmn:receiveTask id="Task_RecibirRespuesta" name="Recibir respuesta"><bpmn:incoming>Flow_C2</bpmn:incoming><bpmn:outgoing>Flow_C3</bpmn:outgoing></bpmn:task>
+    <bpmn:endEvent id="End_Cliente" name="Fin"><bpmn:incoming>Flow_C4</bpmn:incoming></bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_C1" sourceRef="Start_Cliente" targetRef="Task_Solicitar" />
+    <bpmn:sequenceFlow id="Flow_C2" sourceRef="Task_Solicitar" targetRef="Task_RecibirRespuesta" />
+    <bpmn:sequenceFlow id="Flow_C3" sourceRef="Task_RecibirRespuesta" targetRef="End_Cliente" />
+  </bpmn:process>
+  <bpmn:process id="Process_TecnoStock" name="Registro de venta y actualización de inventario" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_TecnoStock">
+      <bpmn:lane id="Lane_Ventas" name="Ventas"><bpmn:flowNodeRef>Start_Pedido</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_RegistrarSolicitud</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_NoStock</bpmn:flowNodeRef><bpmn:flowNodeRef>End_SinVenta</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Confirmar</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_InformarResultado</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Venta</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_Sistema" name="Sistema de Inventario y Ventas"><bpmn:flowNodeRef>Task_ValidarStock</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Stock</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_RegistrarVenta</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_ActualizarStock</bpmn:flowNodeRef><bpmn:flowNodeRef>Boundary_ErrorActualizacion</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_StockMinimo</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_Deposito" name="Depósito"><bpmn:flowNodeRef>Task_RevisarReposicion</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_Sistemas" name="Sistemas (soporte técnico)"><bpmn:flowNodeRef>Task_CorregirIncidencia</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_Administracion" name="Administración"><bpmn:flowNodeRef>Task_ConsultarInformes</bpmn:flowNodeRef></bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_Pedido" name="Pedido recibido"><bpmn:messageEventDefinition id="MessageStart_Pedido" /></bpmn:startEvent>
+    <bpmn:userTask id="Task_RegistrarSolicitud" name="Registrar solicitud y productos" />
+    <bpmn:serviceTask id="Task_ValidarStock" name="Validar producto y consultar stock" />
+    <bpmn:exclusiveGateway id="Gateway_Stock" name="¿Hay stock suficiente?" gatewayDirection="Diverging" />
+    <bpmn:userTask id="Task_NoStock" name="Informar falta de disponibilidad" />
+    <bpmn:endEvent id="End_SinVenta" name="Solicitud cerrada sin venta" />
+    <bpmn:userTask id="Task_Confirmar" name="Confirmar operación con el cliente" />
+    <bpmn:serviceTask id="Task_RegistrarVenta" name="Registrar Venta y DetalleVenta" />
+    <bpmn:serviceTask id="Task_ActualizarStock" name="Actualizar stock automáticamente" />
+    <bpmn:boundaryEvent id="Boundary_ErrorActualizacion" name="Falla al actualizar stock" attachedToRef="Task_ActualizarStock" cancelActivity="true"><bpmn:errorEventDefinition id="ErrorDefinition_Actualizacion" errorRef="Error_UpdateStock" /></bpmn:boundaryEvent>
+    <bpmn:userTask id="Task_CorregirIncidencia" name="Analizar incidencia y corregir el error técnico" />
+    <bpmn:exclusiveGateway id="Gateway_StockMinimo" name="¿Stock resultante igual o menor al mínimo?" gatewayDirection="Diverging" />
+    <bpmn:userTask id="Task_RevisarReposicion" name="Revisar necesidad de reposición" />
+    <bpmn:userTask id="Task_ConsultarInformes" name="Consultar registros para control e informes" />
+    <bpmn:userTask id="Task_InformarResultado" name="Comunicar resultado de la operación" />
+    <bpmn:endEvent id="End_Venta" name="Venta registrada" />
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start_Pedido" targetRef="Task_RegistrarSolicitud" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_RegistrarSolicitud" targetRef="Task_ValidarStock" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_ValidarStock" targetRef="Gateway_Stock" />
+    <bpmn:sequenceFlow id="Flow_Stock_No" name="No" sourceRef="Gateway_Stock" targetRef="Task_NoStock" />
+    <bpmn:sequenceFlow id="Flow_Stock_No_End" sourceRef="Task_NoStock" targetRef="End_SinVenta" />
+    <bpmn:sequenceFlow id="Flow_Stock_Si" name="Sí" sourceRef="Gateway_Stock" targetRef="Task_Confirmar" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_Confirmar" targetRef="Task_RegistrarVenta" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_RegistrarVenta" targetRef="Task_ActualizarStock" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_ActualizarStock" targetRef="Gateway_StockMinimo" />
+    <bpmn:sequenceFlow id="Flow_ErrorActualizacion" sourceRef="Boundary_ErrorActualizacion" targetRef="Task_CorregirIncidencia" />
+    <bpmn:sequenceFlow id="Flow_Reintentar" name="Reintentar" sourceRef="Task_CorregirIncidencia" targetRef="Task_ActualizarStock" />
+    <bpmn:sequenceFlow id="Flow_Minimo_Si" name="Sí" sourceRef="Gateway_StockMinimo" targetRef="Task_RevisarReposicion" />
+    <bpmn:sequenceFlow id="Flow_Minimo_No" name="No" sourceRef="Gateway_StockMinimo" targetRef="Task_ConsultarInformes" />
+    <bpmn:sequenceFlow id="Flow_Deposito_Admin" sourceRef="Task_RevisarReposicion" targetRef="Task_ConsultarInformes" />
+    <bpmn:sequenceFlow id="Flow_Admin_Ventas" sourceRef="Task_ConsultarInformes" targetRef="Task_InformarResultado" />
+    <bpmn:sequenceFlow id="Flow_Final" sourceRef="Task_InformarResultado" targetRef="End_Venta" />
+  </bpmn:process>
+</bpmn:definitions>
